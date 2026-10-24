@@ -1,0 +1,38 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Validate policies
+        run: >-
+          python scripts/validate_policy.py
+          .anti-reverse-engineering.yml
+          policies/default.yml
+          policies/strict.yml
+          policies/development-friendly.yml
+          examples/owned-application/.anti-reverse-engineering.yml
+      - name: Check skill copies are in sync
+        run: python scripts/check_skill_sync.py

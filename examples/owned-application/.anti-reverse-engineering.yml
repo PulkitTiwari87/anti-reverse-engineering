@@ -1,0 +1,52 @@
+# Worked example for a fictional application. All values are synthetic.
+# This file describes intent. It does not enforce permissions or prove ownership.
+version: 1
+
+application:
+  name: "Lumen Notes"
+  owner: "Example Studio Ltd"
+  canonical_domains:
+    - "notes.example.com"
+  repositories:
+    - "example-studio/lumen-notes"
+  identity_assets:
+    - "web/public/brand/"
+    - "web/src/theme/"
+  protected_paths:
+    - "server/sync-engine/"
+    - "server/ranking/"
+  sensitive_data_paths:
+    - ".env*"
+    - "deploy/secrets/"
+    - "fixtures/real-customer-export/"
+
+authorization:
+  permitted_work:
+    - maintenance
+    - feature_development
+    - accessibility
+    - testing
+    - documentation
+  reverse_engineering: approval_required
+  third_party_reconstruction: deny_without_documented_authorization
+  external_upload_of_proprietary_material: approval_required
+
+identity:
+  preserve_by_default: true
+  changes_require_approval:
+    - product_name
+    - logo
+    - attribution
+
+data_handling:
+  never_print_secrets: true
+  minimize_customer_data: true
+  external_services_require_approval: true
+
+review:
+  high_risk_changes_require_human_review: true
+  record_decision_rationale: true
+
+audit:
+  report_format: summary
+  location: "docs/decisions"

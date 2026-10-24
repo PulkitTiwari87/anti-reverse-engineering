@@ -1,0 +1,54 @@
+# Development-friendly profile for a repository you clearly own.
+# Looser on routine work, NOT looser on secrets or third-party material:
+# secrets stay hidden and third-party reconstruction still needs documented authorization.
+# This file describes intent. It does not enforce permissions or prove ownership.
+version: 1
+
+application:
+  name: "<APPLICATION NAME>"
+  owner: "<OWNER OR ORGANIZATION>"
+  canonical_domains: []
+  repositories:
+    - "<OWNER>/<REPOSITORY>"
+  identity_assets:
+    - "public/brand/"
+  protected_paths:
+    - "server/business-rules/"
+  sensitive_data_paths:
+    - ".env*"
+    - "secrets/"
+
+authorization:
+  permitted_work:
+    - maintenance
+    - feature_development
+    - accessibility
+    - performance
+    - testing
+    - documentation
+    - security_testing
+    - interoperability
+    - migration
+  reverse_engineering: allowed_in_documented_scope
+  third_party_reconstruction: deny_without_documented_authorization
+  external_upload_of_proprietary_material: allowed_for_non_sensitive
+
+identity:
+  preserve_by_default: true
+  changes_require_approval:
+    - product_name
+    - logo
+    - attribution
+
+data_handling:
+  never_print_secrets: true
+  minimize_customer_data: true
+  external_services_require_approval: false
+
+review:
+  high_risk_changes_require_human_review: true
+  record_decision_rationale: false
+
+audit:
+  report_format: summary
+  location: ".anti-reverse-engineering/reports"

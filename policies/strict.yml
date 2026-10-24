@@ -1,0 +1,54 @@
+# Strict profile for sensitive or regulated applications.
+# This file describes intent. It does not enforce permissions or prove ownership.
+version: 1
+
+application:
+  name: "<APPLICATION NAME>"
+  owner: "<OWNER OR ORGANIZATION>"
+  canonical_domains:
+    - "app.example.com"
+  repositories:
+    - "<OWNER>/<REPOSITORY>"
+  identity_assets:
+    - "public/brand/"
+  protected_paths:
+    - "src/"
+    - "server/"
+    - "prompts/"
+  sensitive_data_paths:
+    - ".env*"
+    - "secrets/"
+    - "customer-data/"
+    - "exports/"
+
+authorization:
+  permitted_work:
+    - maintenance
+    - accessibility
+    - testing
+    - documentation
+  reverse_engineering: deny
+  third_party_reconstruction: deny
+  external_upload_of_proprietary_material: deny
+
+identity:
+  preserve_by_default: true
+  changes_require_approval:
+    - product_name
+    - logo
+    - brand_assets
+    - distinctive_user_flows
+    - attribution
+
+data_handling:
+  never_print_secrets: true
+  minimize_customer_data: true
+  external_services_require_approval: true
+
+review:
+  high_risk_changes_require_human_review: true
+  record_decision_rationale: true
+
+audit:
+  report_format: detailed
+  location: ".anti-reverse-engineering/reports"

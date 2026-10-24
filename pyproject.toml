@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anti-reverse-engineering"
+version = "0.1.0"
+description = "A defensive AI-agent security skill for application identity protection, authorization-aware development, and reducing unauthorized reconstruction risk."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+# PyYAML is the only dependency: the standard library cannot parse YAML.
+# The validator uses yaml.safe_load only.
+dependencies = ["PyYAML>=6.0,<7"]
+
+[tool.setuptools]
+# Tooling repository: scripts are run in place, not installed as a package.
+py-modules = []

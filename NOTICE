@@ -1,0 +1,13 @@
+anti-reverse-engineering
+Copyright (c) <YEAR> <COPYRIGHT HOLDER - REPLACE BEFORE PUBLICATION>
+
+Licensed under the MIT License (proposed; the maintainer must confirm the license
+choice and fill in the copyright holder before publication). See LICENSE.
+
+The project name describes a defensive objective: reducing unauthorized
+reconstruction and unnecessary exposure. It does not claim that reverse
+engineering or cloning can be prevented.
+
+The initial skill text was adapted from a draft supplied by the maintainer.
+Code of Conduct adapted from the Contributor Covenant 2.1 (CC BY 4.0),
+https://www.contributor-covenant.org/version/2/1/code_of_conduct/

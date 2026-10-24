@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t d">
+  <title id="t">anti-reverse-engineering logo</title>
+  <desc id="d">A navy shield with a cyan outline and a cyan keyhole at its center, representing protection of application identity.</desc>
+  <path d="M128 14 L220 48 V120 C220 178 180 220 128 242 C76 220 36 178 36 120 V48 Z" fill="#0a2540" stroke="#00b8d9" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M128 38 L200 64 V120 C200 164 170 198 128 217 C86 198 56 164 56 120 V64 Z" fill="none" stroke="#00b8d9" stroke-opacity="0.35" stroke-width="3"/>
+  <circle cx="128" cy="108" r="22" fill="#00b8d9"/>
+  <path d="M118 124 H138 L146 172 H110 Z" fill="#00b8d9"/>
+</svg>

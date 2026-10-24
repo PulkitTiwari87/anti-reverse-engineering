@@ -1,0 +1,33 @@
+name: Bug report
+description: The skill, validator, or docs behave incorrectly
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include real secrets, customer data, or private application details.
+        Security vulnerabilities: do not file here, see SECURITY.md.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Include the request given to the agent, or the command you ran.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Which of the four decision outcomes did you expect, if relevant?
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent and version
+      placeholder: "e.g. Claude Code x.y.z, Codex x.y.z"
+  - type: textarea
+    id: policy
+    attributes:
+      label: Policy used (sanitized)
+      render: yaml
